@@ -1,0 +1,74 @@
+#
+# denyssh.conf - DenySSH configuration file.
+#
+# $Id: denyssh.conf.sample,v 1.2 2006/07/20 04:52:09 ryan Exp $
+#
+# Syntax:
+#   string:    '...' or "..."
+#   integer:   5 or -5 (no quotes)
+#   regexp:    /.../
+#   hash:      { key => value, ... }
+#   array:     [ value, ... ]
+#   procedure: proc {|arglist| Ruby code }
+#
+# You guessed it; this file is Ruby, so you've gotta use Ruby syntax. But
+# Ruby's a real friendly sort of language, so don't you worry. Just pay
+# attention to the comments and you'll be fine.
+#
+# Credit where credit is due: the format of this file was inspired by that of
+# pkgtools.conf, from the lovely pkgtools suite for FreeBSD (also written in
+# Ruby).
+#
+
+module DenySSHConfig # <-- do not remove this line
+
+  # LOGFILE: string (default: '/var/log/auth.log')
+  #
+  # Path to the log file you want to monitor.
+
+  LOGFILE = '/var/log/auth.log'
+
+  # HOSTDATA: string (default: '/var/db/denyssh/hosts.yaml')
+  #
+  # Path to the file where DenySSH will store data about hosts connecting via
+  # SSH.
+
+  HOSTDATA = '/var/db/denyssh/hosts.yaml'
+
+  # PFCTL: string (default: '/sbin/pfctl')
+  #
+  # Path to the pfctl program.
+
+  PFCTL = '/sbin/pfctl'
+
+  # PF_TABLE: string (default: 'denyssh')
+  #
+  # Name of the PF table to populate with blocked hosts. It's up to you to
+  # configure your own PF rules to use this table however you wish. See the
+  # FAQ for more information.
+
+  PF_TABLE = 'denyssh'
+
+  # DENY_THRESHOLD_VALID: integer (default: 10)
+  #
+  # Number of failed login attempts after which a host will be added to the
+  # temporary block list when that host has successfully logged in at some point
+  # in the past.
+
+  DENY_THRESHOLD_VALID = 10
+
+  # DENY_THRESHOLD_INVALID: integer (default: 5)
+  #
+  # Number of failed login attempts after which a host will be added to the
+  # temporary block list when that host has never successfully logged in before.
+
+  DENY_THRESHOLD_INVALID = 5
+
+  # DENY_THRESHOLD_ROOT: integer (default: 3)
+  #
+  # Number of failed login attempts after which a host will be added to the
+  # temporary block list when that host is attempting to log in as root.
+
+  DENY_THRESHOLD_ROOT = 3
+
+end # <-- do not remove this line
