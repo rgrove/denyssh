@@ -45,8 +45,6 @@
 #
 # :title: DenySSH
 #
-# $Id$
-#
 
 require 'fileutils'
 require 'ipaddr'
