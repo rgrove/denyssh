@@ -388,7 +388,7 @@ module DenySSH
   # Saves host data to the host data file.
   def self.save_data
     unless File.exists?(File.dirname(DenySSHConfig::HOSTDATA))
-      mkdir_p(File.dirname(DenySSHConfig::HOSTDATA))
+      FileUtils.mkdir_p(File.dirname(DenySSHConfig::HOSTDATA))
     end
 
     @data['lastpos'] = @tail.last_pos
