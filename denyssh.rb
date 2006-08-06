@@ -271,7 +271,7 @@ module DenySSHConfig
 
     :PATTERNS_FAIL => [
       /sshd\[\d+\]: Illegal user (\S+) from ([\d\.]+)/,
-      /sshd\[\d+\]: Failed \S+ for (\S+) from ([\d\.]+)/,
+      /sshd\[\d+\]: Failed \S+ for (?:invalid user\s+)?(\S+) from ([\d\.]+)/,
     ],
   }
 
