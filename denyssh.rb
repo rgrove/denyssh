@@ -387,8 +387,11 @@ module DenySSH
 
   # Saves host data to the host data file.
   def self.save_data
-    unless File.exists?(File.dirname(DenySSHConfig::HOSTDATA))
-      FileUtils.mkdir_p(File.dirname(DenySSHConfig::HOSTDATA))
+    data_dir = File.dirname(DenySSHConfig::HOSTDATA)
+    
+    unless File.exists?(data_dir)
+      FileUtils.mkdir_p(data_dir)
+      File.chmod(0750, data_dir)
     end
 
     @data['lastpos'] = @tail.last_pos
@@ -396,7 +399,9 @@ module DenySSH
     File.open(DenySSHConfig::HOSTDATA, 'w') do |file|
       YAML.dump(@data, file)
     end
-
+    
+    File.chmod(0640, DenySSHConfig::HOSTDATA)
+    
   rescue Exception => e
     if Syslog::opened?
       Syslog::log(Syslog::LOG_ERR, 'error saving host data: %s', e)
