@@ -1,0 +1,15 @@
+h1. DenySSH
+
+DenySSH monitors the auth log of a BSD system for failed SSH login attempts and adds repeat attackers to a Packet Filter table, allowing you to define PF rules to block the attacking hosts or redirect them to a honeypot for your amusement.
+
+Attackers are only blocked temporarily to minimize the inconvenience if a false positive occurs. Each consecutive failed login attempt results in the attacking host being blocked for a longer time period. If a successful login occurs, that host's record is wiped clean and it is given a little more leeway.
+
+DenySSH is written in Ruby and has been tested on FreeBSD (but should work on any BSD with PF support).
+Requirements
+
+* Ruby 1.8.4+
+* Packet Filter 
+
+If you’re running a recent version of OpenBSD, FreeBSD, NetBSD, or DragonFlyBSD, you probably already have PF installed. If you’re running Linux, you’re out of luck. Sorry.
+
+*Note:* DenySSH is no longer actively maintained. Feel free to use it an modify it to meet your needs, but please don't expect support.
