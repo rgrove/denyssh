@@ -12,4 +12,4 @@ Requirements
 
 If you’re running a recent version of OpenBSD, FreeBSD, NetBSD, or DragonFlyBSD, you probably already have PF installed. If you’re running Linux, you’re out of luck. Sorry.
 
-*Note:* DenySSH is no longer actively maintained. Feel free to use it an modify it to meet your needs, but please don't expect support.
+*Note:* DenySSH is no longer actively maintained. Feel free to use it and modify it to meet your needs, but please don't expect support.
