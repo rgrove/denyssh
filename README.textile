@@ -14,3 +14,5 @@ h2. Requirements
 If you’re running a recent version of OpenBSD, FreeBSD, NetBSD, or DragonFlyBSD, you probably already have PF installed. If you’re running Linux, you’re out of luck. Sorry.
 
 *Note:* DenySSH is no longer actively maintained. Feel free to use it and modify it to meet your needs, but please don't expect support.
+
+There's a similar project (named "deny-ssh") with Linux support here: "https://github.com/qrux/deny-ssh":https://github.com/qrux/deny-ssh
